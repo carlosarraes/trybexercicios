@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TrybeTrip</title>
+  </head>
+  <body>
+    <main>
+      <h1>TrybeTrip</h1>
+      <label for="name"
+        >Nome:
+        <input type="text" name="name" id="name" minlength="10" maxlength="40"
+      /></label>
+      <label for="email"
+        >E-mail:
+        <input
+          type="email"
+          name="email"
+          id="email"
+          minlength="10"
+          maxlength="50"
+      /></label>
+      <label for="cidade"
+        ><input type="radio" name="destino" id="cidade" required />
+        Cidade</label
+      >
+      <label for="praia"
+        ><input type="radio" name="destino" id="praia" required /> Praia</label
+      >
+      <label for="montanha"
+        ><input type="radio" name="destino" id="montanha" required />
+        Montanha</label
+      >
+      <label for="campo"
+        ><input type="radio" name="destino" id="campo" required /> Campo</label
+      >
+      <br />
+      <label for="pq">Digite sua resposta:</label>
+      <br />
+      <textarea name="pq" id="pq" cols="30" rows="10"></textarea>
+      <br />
+      <label for="date"
+        >Data: <input type="date" name="data" id="data"
+      /></label>
+      <br />
+      <label for="publi"
+        >Publi? <input type="checkbox" name="publi" id="publi"
+      /></label>
+      <br />
+      <label for="agree"
+        >Concorda?
+        <input type="checkbox" name="agree" id="agree" checked required
+      /></label>
+    </main>
+    <section>
+      <button id="enviar">Submit</button>
+      <button id="limpar">Clear</button>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>
