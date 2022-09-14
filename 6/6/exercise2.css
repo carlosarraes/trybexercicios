@@ -6,7 +6,14 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
-  border: 1px red solid;
+}
+
+body {
+  margin: 0 5%;
+}
+
+header p {
+  font-size: 1.5em;
 }
 
 nav {
@@ -23,4 +30,48 @@ nav > ul {
 
 footer {
   font-size: 0.8em;
+}
+
+@media (min-width: 800px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header p {
+    align-self: center;
+  }
+
+  nav {
+    display: flex;
+    align-self: center;
+  }
+
+  #aside {
+    display: flex;
+  }
+
+  .aside-one {
+    flex-grow: 2;
+  }
+
+  .aside-two {
+    flex-grow: 1;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+  }
+
+  .section-a {
+    width: 40%;
+  }
+
+  .section-b {
+    width: 60%;
+    font-size: 0.8em;
+    align-self: baseline;
+    margin-top: 1em;
+  }
 }
