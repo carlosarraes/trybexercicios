@@ -1,0 +1,23 @@
+{
+  "name": "trybexercicios",
+  "version": "1.0.0",
+  "description": "So um local para eu ir fazendo os exercicios e sincronizar entre computadores.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosarraes/trybexercicios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosarraes/trybexercicios/issues"
+  },
+  "homepage": "https://github.com/carlosarraes/trybexercicios#readme",
+  "dependencies": {
+    "jest": "^29.0.3"
+  }
+}
