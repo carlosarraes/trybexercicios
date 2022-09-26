@@ -48,7 +48,7 @@
   'Fundação',
   'O Chamado de Cthulhu',
   ```
-- [ ] Encontre o nome do livro escrito pela pessoa cujo nome registrado começa com três iniciais.
+- [x] Encontre o nome do livro escrito pela pessoa cujo nome registrado começa com três iniciais.
   ```
   authorWith3DotsOnName()
   'O Senhor dos Anéis'
