@@ -61,32 +61,51 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
-
-function formatedBookNames() {
-  // escreva seu código aqui
+function formatedBookNames(obj) {
+  return obj.map((book) => `${book.name} - ${book.genre} - ${book.author.name}`);
 }
 
-function nameAndAge() {
-  // escreva seu código aqui
+console.log('Ex1: ', formatedBookNames(books));
+
+function nameAndAge(obj) {
+  const newObj = obj.map((person) => ({ age: 2022 - person.author.birthYear, author: person.author.name }));
+  return newObj.sort((a, b) => a.age - b.age);
 }
 
-function fantasyOrScienceFiction() {
-  // escreva seu código aqui
+console.log('Ex2: ', nameAndAge(books));
+
+function fantasyOrScienceFiction(obj) {
+  return obj.filter((book) => book.genre === 'Ficção Científica' || book.genre === 'Fantasia');
 }
 
-function oldBooksOrdered() {
-  // escreva seu código aqui
+console.log('Ex3: ', fantasyOrScienceFiction(books));
+
+function oldBooksOrdered(obj) {
+  return obj.filter((book) => 2022 - book.releaseYear > 60).sort((a, b) => a.releaseYear - b.releaseYear);
 }
 
-function fantasyOrScienceFictionAuthors() {
-  // escreva seu código aqui
+console.log('Ex4: ', oldBooksOrdered(books));
+
+function fantasyOrScienceFictionAuthors(obj) {
+  const newObj = obj
+    .filter((book) => book.genre === 'Ficção Científica' || book.genre === 'Fantasia')
+    .map((book) => book.author.name)
+    .sort((a, b) => (b < a ? 1 : -1));
+  return newObj;
 }
 
-function oldBooks() {
-  // escreva seu código aqui
+console.log('Ex5: ', fantasyOrScienceFictionAuthors(books));
+
+function oldBooks(obj) {
+  const newObj = obj.filter((book) => 2022 - book.releaseYear > 60).map((book) => book.name);
+  return newObj;
 }
 
-function authorWith3DotsOnName() {
-  // escreva seu código aqui
+console.log('Ex6: ', oldBooks(books));
+
+function authorWith3DotsOnName(obj) {
+  const newObj = obj.find((book) => book.author.name.split('.').length - 1 === 3);
+  return newObj.name;
 }
+
+console.log('Ex7: ', authorWith3DotsOnName(books));
