@@ -1,8 +1,10 @@
 const arrays = [['1', '2', '3'], [true], [4, 5, 6]];
 
-function flatten(arr) {
-  // escreva seu código aqui
+function flatten(matrix) {
+  return matrix.reduce((prev, curr) => prev.concat(curr), []);
 }
+
+console.log(flatten(arrays));
 
 const books = [
   {
@@ -68,16 +70,23 @@ const books = [
 ];
 
 function reduceNames(obj) {
-  // escreva seu código aqui
+  const result = obj.reduce((prev, curr) => (prev ? `${prev}, ${curr.author.name}` : curr.author.name), '');
+  return `${result}.`;
 }
+
+console.log(reduceNames(books));
 
 function averageAge(obj) {
-  // escreva seu código aqui
+  return obj.reduce((prev, curr) => prev + (curr.releaseYear - curr.author.birthYear), 0) / obj.length;
 }
 
+console.log(averageAge(books));
+
 function longestNamedBook(obj) {
-  // escreva seu código aqui
+  return obj.reduce((prev, curr) => (prev.name.length > curr.name.length ? prev : curr));
 }
+
+console.log(longestNamedBook(books));
 
 const names = [
   'Aanemarie',
@@ -91,9 +100,11 @@ const names = [
   'Alarucha',
 ];
 
-function containsA(matrix) {
-  // escreva seu código aqui
+function containsA(arr) {
+  return arr.reduce((prev, curr) => prev + (curr.split('a').length - 1) + (curr.split('A').length - 1), 0);
 }
+
+console.log('ex5: ', containsA(names));
 
 const students = ['Pedro Henrique', 'Miguel', 'Maria Clara'];
 const grades = [
@@ -103,5 +114,22 @@ const grades = [
 ];
 
 function studentAverage(stnd, grds) {
-  // escreva seu código aqui
+  const avgGrd = grds.map((array) => array.reduce((prev, curr) => prev + curr, 0) / array.length);
+  const report = stnd.map((student, index) => ({ name: student, average: avgGrd[index] }));
+  return report;
 }
+
+console.log(studentAverage(students, grades));
+
+module.exports = {
+  flatten,
+  reduceNames,
+  averageAge,
+  longestNamedBook,
+  containsA,
+  studentAverage,
+  names,
+  books,
+  grades,
+  students,
+};
