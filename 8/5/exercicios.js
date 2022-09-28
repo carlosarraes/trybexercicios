@@ -7,12 +7,16 @@ const rectangle3 = [6, 9];
 const rectangles = [rectangle1, rectangle2, rectangle3];
 
 rectangles.forEach((rectangle) => {
-  console.log(rectangleArea(parametro)); // Altere o parâmetro recebido por rectangleArea()
+  console.log(rectangleArea(...rectangle)); // Altere o parâmetro recebido por rectangleArea()
 });
 
 //! ------------------------- Exercicio 2 -------------------------
 
-const sum = () => {};
+const sum = (...args) => {
+  return args.reduce((prev, curr) => prev + curr, 0);
+};
+
+console.log(sum(4, 5, 6));
 
 //! -------------------------  Exercicio 3 -------------------------
 
@@ -29,15 +33,11 @@ const gunnar = {
   likes: ['hiking', 'scuba diving', 'taking pictures'],
   nationality: 'Icelandic',
 };
-// name: nome da pessoa, age: idade, likes: gosta de, nationality: nacionalidade
 
-// complete a assinatura da função abaixo
-const personLikes = () => `${name} is ${age} years old and likes ${likes.join(', ')}.`;
-// <nome> tem <anos de idade> e gosta de <gostos da pessoa>
+const personLikes = ({ name, age, likes }) => `${name} is ${age} years old and likes ${likes.join(', ')}.`;
 
-// Retornos esperados:
-console.log(personLikes(alex)); // 'Alex is 26 years old and likes fly fishing.'
-console.log(personLikes(gunnar)); // 'Gunnar is 30 years old and likes hiking, scuba diving, taking pictures.'
+console.log(personLikes(alex));
+console.log(personLikes(gunnar));
 
 //! -------------------------  Exercicio 4 -------------------------
 
@@ -67,22 +67,34 @@ const people = [
     bornIn: 2001,
     nationality: 'Brazilian',
   },
-  // bornIn: nascido em
 ];
 
-// escreva filterPeople abaixo
+const filterPeople = (obj) => {
+  return obj.filter((person) => person.nationality === 'Australian' && person.bornIn >= 1901 && person.bornIn <= 2000);
+};
+
+console.log(filterPeople(people));
 
 //! -------------------------  Exercicio 5 -------------------------
 
 const myList = [5, 2, 3];
-// escreva swap abaixo
+
+const swapList = ([x, y, z]) => [z, y, x];
+
+console.log(swapList(myList));
 
 //! -------------------------  Exercicio 6 -------------------------
 const palio = ['Palio', 'Fiat', 2019];
 const shelbyCobra = ['Shelby Cobra', 'Ford', 1963];
 const chiron = ['Chiron', 'Bugatti', 2016];
 
-// escreva toObject abaixo
+const toObject = ([car, brand, year]) => {
+  return { car, brand, year };
+};
+
+console.log(toObject(palio));
+console.log(toObject(shelbyCobra));
+console.log(toObject(chiron));
 
 //! -------------------------  Exercicio 7 -------------------------
 const ships = [
@@ -101,24 +113,23 @@ const ships = [
     length: 256,
     measurementUnit: 'meters',
   },
-  // measurementUnit: unidade de medida
 ];
 
-// escreva shipLength abaixo
+const shipLength = ({ name, length, measurementUnit }) => {
+  return `${name} is ${length} ${measurementUnit} long`;
+};
 
-// retorno esperado
-console.log(shipLength(ships[0])); // 'Titanic is 269.1 meters long'
-console.log(shipLength(ships[1])); // 'Queen Mary 2 is 1132 feet long'
-console.log(shipLength(ships[2])); // 'Yamato is 256 meters long'
+console.log(shipLength(ships[0]));
+console.log(shipLength(ships[1]));
+console.log(shipLength(ships[2]));
 
 //! -------------------------  Exercicio 8 -------------------------
 
-// escreva greet abaixo
+const greet = (name, greeting = 'hi') => `${greeting} ${name}`;
 
-// Retornos esperados:
-console.log(greet('John')); // 'Hi John'
-console.log(greet('John', 'Good morning')); // 'Good morning John'
-console.log(greet('Isabela', 'Oi')); // 'Oi Isabela'
+console.log(greet('John'));
+console.log(greet('John', 'Good morning'));
+console.log(greet('Isabela', 'Oi'));
 
 //! -------------------------  Exercicio 9 -------------------------
 
@@ -129,3 +140,7 @@ const yearSeasons = {
   winter: ['December', 'January', 'February'],
 };
 // yearSeasons: estações do ano.
+
+const months = [...yearSeasons.winter, ...yearSeasons.spring, ...yearSeasons.autumn, ...yearSeasons.summer];
+
+console.log(months);
